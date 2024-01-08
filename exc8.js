@@ -33,8 +33,7 @@ class BankDetails {
           console.log(`${this.fullName}: Transferred ${amount} to ${targetAccount.fullName}`);
         } else {
           console.log("Invalid amount for transfer or insufficient balance.");
-        }
-      }
+
     }
 
 const account = new BankDetails("jonny", "james")
