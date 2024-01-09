@@ -5,7 +5,7 @@
  }
  .input-section{
   background-color: burlywood;
-  height: 60vh;
+  height: 70vh;
 
  }
  .input-area{
@@ -17,11 +17,14 @@
  .each-input {
     margin: 10px 60px;
     display: flex;
- 
+    flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     gap: 8px;
     
+  }
+  .error{
+    color:crimson
   }
  label{
    
@@ -39,32 +42,41 @@
   margin: 10px auto;
   gap:20px
  }
- .label-text{
-       
- }
+
  
  .radio-field{
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: fit-content;
   margin: 10px auto;
   gap:20px
  }
  .select-field{
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: fit-content;
-  margin: 10px auto;
+  margin: 5px auto;
   gap:20px
  }
  .text-area{
-   margin: 10px 60px;
+   margin: 15px 60px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
  }
  .texty{
   width:200px;
+ }
+ .btn{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 5px auto;
+  gap:20px
  }
 </style>
 <template>
@@ -74,33 +86,35 @@
         
         <div class="input-area">
           <div class="each-input">
-            <label for="input1">Name</label>
+            <label for="input1">Name :</label>
             
             <el-input v-model="formData.input" placeholder="Please input" clearable class="inp" id="input1" />
-             <span v-for="error in v$.input.$errors" :key="error.$uid">
+             <span v-for="error in v$.input.$errors" :key="error.$uid" class="error">
             {{ error.$message }}</span>
           </div>
           <div class="each-input">
-            <label for="input2">Username</label>
+            <label for="input2">Username :</label>
             <el-input v-model="formData.val" placeholder="Please input" clearable class="inp" id="input2" />
-            <span v-for="error in v$.val.$errors" :key="error.$uid">
+            <span v-for="error in v$.val.$errors" :key="error.$uid" class="error">
             {{ error.$message }}</span>
           </div>
         </div>
 
         <div class="radio-field">
-          <div class="my-2 flex items-center text-sm">
-            <el-radio-group v-model="formData.radio2" class="ml-4" size="large">
+          <div class="my-2 flex justify-center items-center text-sm">
+          
+            <el-radio-group v-model="formData.radio2" class="ml-4" size="large"> 
+              
               <el-radio-button label="male">Male</el-radio-button>
               <el-radio-button label="female">Female</el-radio-button>
             </el-radio-group>
-            <span v-for="error in v$.radio2.$errors" :key="error.$uid">
+            <span v-for="error in v$.radio2.$errors" :key="error.$uid" class="error">
             {{ error.$message }}</span>
           </div>
         </div>
 
         <div class="text-area">
-          <label for="textarea1">Address</label>
+          <label for="textarea1">Address :</label>
           <el-input
             v-model="formData.textarea2"
             :autosize="{ minRows: 2, maxRows: 4 }"
@@ -109,12 +123,12 @@
             id="textarea1"
             class="texty"
           />
-          <span v-for="error in v$.textarea2.$errors" :key="error.$uid">
+          <span v-for="error in v$.textarea2.$errors" :key="error.$uid" class="error">
             {{ error.$message }}</span>
         </div>
 
         <div class="select-field">
-          <span>Country : </span>
+          <label>Country : </label>
           <el-select v-model="formData.value" class="m-2" placeholder="select">
             <el-option
               v-for="item in options"
@@ -123,12 +137,12 @@
               :value="item.value"
             />
           </el-select>
-          <span v-for="error in v$.value.$errors" :key="error.$uid">
+          <span v-for="error in v$.value.$errors" :key="error.$uid" class="error">
             {{ error.$message }}</span>
         </div>
 
         <div class="form-actions">
-          <el-button type="primary" @click="submitForm">Submit</el-button>
+          <el-button type="primary" @click="submitForm" class="btn">Submit</el-button>
         </div>
         
       </el-form>
@@ -184,7 +198,9 @@ const tableData = ref([]);
 
 const submitForm = async() => {
      const result = await v$.value.$validate();
+     
      if(result){
+  
        tableData.value.push({
         name: formData.input,
         username: formData.val,
@@ -197,7 +213,16 @@ const submitForm = async() => {
     formData.textarea2 = '';
     formData.radio2 = '';
     formData.value = '';
+
+  
+
+    // this.v$.$reset();
+    v$.value.$reset();
+
+    
      }
+
+    
 }
 </script>
 
