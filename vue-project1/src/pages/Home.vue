@@ -1,16 +1,11 @@
 <template>
-    <headei/>
-    <form-ui/>
+   
+     <Form/>
    </template>
-   <script> 
+   <script setup> 
     
 import Form from "../components/Form.vue"
 import Header from "../components/Header.vue"
 
- export default{
-       components: {
-         'form-ui': Form,
-         'headei' : Header,
-       }
-      }
+
    </script>

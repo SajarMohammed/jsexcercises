@@ -1,12 +1,9 @@
 <template>
-    <homie/>
+  <Header/>
+    <router-view></router-view>
 </template>
 
-<script>
- import Home from "./pages/Home.vue"
- export default{
-  components :{
-    'homie' : Home
-  }
- }
+<script setup>
+ import Header from "./components/Header.vue"
+
 </script>

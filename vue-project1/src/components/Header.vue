@@ -26,6 +26,9 @@
   
    
 }
+.custom-links{
+    text-decoration: none;
+}
 
 .titles {
   color: white;
@@ -34,22 +37,13 @@
 }
 </style>
 <template>
-    <!-- <div class="container">
-        <div class="logo">
-           <h1 class="text">helllooo</h1>
-        </div>
-        <div class="links">
-    <li v-for="nav in navlinks" :key="nav.id" class="list">
-       <h4 class="titles">{{ nav.title }}</h4>
-    </li>
-</div>
-    </div> -->
+    
     <el-container class="main">
         <el-header class="head">
             <el-row >
                 <el-col :span="4" class="logo">logo</el-col>
             <el-col v-for="nav in navlinks" :key="nav.id" class="list" :span="2">
-       <h4 class="titles">{{ nav.title }}</h4> </el-col>
+    <router-link :to="nav.url" class="custom-links"><h4 class="titles">{{ nav.title }}</h4></router-link>  </el-col>
     </el-row>
         </el-header>
     </el-container>
@@ -61,16 +55,16 @@
         return{
             navlinks: [
                 {
-                    id:1, title: "Home"
+                    id:1, title: "Home", url :"/"
                 },
                 {
-                    id:2, title: "About"
+                    id:2, title: "About", url :"/about"
                 },
                  {
-                    id:3, title: "Service"
+                    id:3, title: "Products", url :"/products"
                 },
                 {
-                    id:4, title: "Contact"
+                    id:4, title: "Contact", url :"/contact"
                 },
             ]
         }
