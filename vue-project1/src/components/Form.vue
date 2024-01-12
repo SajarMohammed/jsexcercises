@@ -23,16 +23,11 @@
     gap: 8px;
     
   }
-  .error{
+  /* .error{
     color:crimson
-  }
- label{
-   
-   /* color: aqua; */
-   font-weight: bold;
-   /* margin-left:8px; */
- }
- .inp{
+  } */
+
+ .inp{ 
   width:150px;
   height: 30px;
  }
@@ -135,6 +130,7 @@
               :key="item.value"
               :label="item.label"
               :value="item.value"
+              class="label-field"
             />
           </el-select>
           <span v-for="error in v$.value.$errors" :key="error.$uid" class="error">
