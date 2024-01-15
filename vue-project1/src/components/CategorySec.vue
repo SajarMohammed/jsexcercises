@@ -17,7 +17,7 @@
    const { items }  = Categories();
 
    
-  console.log(items);
+
  
 </script>
 
