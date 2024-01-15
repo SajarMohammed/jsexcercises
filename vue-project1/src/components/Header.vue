@@ -61,7 +61,7 @@
                     id:2, title: "About", url :"/about"
                 },
                  {
-                    id:3, title: "Products", url :"/products"
+                    id:3, title: "Products", url :"/product"
                 },
                 {
                     id:4, title: "Contact", url :"/contact"

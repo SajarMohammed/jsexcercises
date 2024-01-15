@@ -7,6 +7,7 @@ import Home from "./pages/Home.vue"
 import Contact from "./pages/Contact.vue"
 import About from "./pages/About.vue"
 import ProductPage from "./pages/ProductPage.vue"
+import SingleProduct from "./pages/SingleProduct.vue"
 import "./main.css"
 
 const routes = [{
@@ -14,7 +15,9 @@ const routes = [{
 },{
     path:"/about" , component: About 
 },{
-    path:"/products" , component: ProductPage 
+    path:"/product" , component: ProductPage 
+},{
+    path:"/product/:id" , component: SingleProduct 
 },{
     path:"/contact" , component: Contact 
 },
