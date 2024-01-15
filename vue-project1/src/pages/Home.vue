@@ -1,11 +1,17 @@
 <template>
    
-     <Form/>
+   <Carousel/>
+   <h1>We Deliever Better Food...!!</h1>
    </template>
    <script setup> 
     
-import Form from "../components/Form.vue"
-import Header from "../components/Header.vue"
+    import Carousel from "@/components/Carousel.vue"
 
 
    </script>
+   <style scoped>
+      h1{
+         font-family: 'Courier New', Courier, monospace;
+         letter-spacing: 2px;
+      }
+   </style>

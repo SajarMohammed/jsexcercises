@@ -1,3 +1,7 @@
 <template>
-    <h1>hello from contact</h1>
+   <Form/>
 </template>
+
+<script setup>
+   import Form from "@/components/Form.vue"
+</script>
