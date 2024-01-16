@@ -64,9 +64,9 @@
               <p>Experience the goodness of nature with our Fresh and Healthy Vegetable Pack! Packed with an assortment of vibrant, farm-fresh vegetables, this pack is your ticket to a nutritious and delicious culinary journey.</p>
               
               <div class="qty">
-                <button @click="increment">+</button>
+                <button @click="decrement"> - </button>
                 <span>{{ count }}</span>
-              <button @click="decrement"> - </button>
+               <button @click="increment">+</button>
               </div>
               <p>price: ${{ price }}</p>
               <button class="confrm" @click="orderConfirm">Place Order</button>
